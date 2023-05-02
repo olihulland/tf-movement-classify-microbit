@@ -2,3 +2,8 @@
 
 model/
 model_tflite
+
+libraries/
+build/
+
+*.bin
