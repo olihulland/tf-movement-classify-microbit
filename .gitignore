@@ -1,1 +1,4 @@
 .DS_Store
+
+model/
+model_tflite
