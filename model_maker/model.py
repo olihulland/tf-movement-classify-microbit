@@ -63,12 +63,6 @@ with open("out.csv", "r") as file:
         model.evaluate(test_features, test_labels)
 
     if CONVERT_TO_TFLITE:
-        # BATCH_SIZE = 1
-        # STEPS = len(train_features[0])
-        # INPUT_SIZE = len(train_features[0])
-
-        # run_model
-
         os.system("rm -rf model")
         os.system("rm -f model_tflite")
 
