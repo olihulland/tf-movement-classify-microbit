@@ -73,4 +73,4 @@ with open("out.csv", "r") as file:
 
         open("model_tflite", "wb").write(tflite_model)
 
-        os.system("xxd -i model_tflite > model_tflite.cc")
+        os.system("xxd -i model_tflite > model_tflite.h")

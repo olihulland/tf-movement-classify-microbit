@@ -7,3 +7,5 @@ libraries/
 build/
 
 *.bin
+
+.vscode/
