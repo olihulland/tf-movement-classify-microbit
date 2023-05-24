@@ -19,14 +19,21 @@ int main() {
     tf->initialise(model_tflite, 6000);
 
     // test inference with example data
-    float test_data[13] = {3.018380407186306, -1.2952721069160453, 2.0557226994800146, 3.1962880785956864, 1.4162036382612526, -2.1728292442178345, 2.599114291471402, -0.5348871489053622, 1.3463181981695382, -1.225127368913248, 1.3437687771313476, -0.29443619762014206, 1.8072526207682738};
+
+    // this should be 0:
+    //2040, -2040, 1417.7388672553543, 0, 2040, -984, 824.3757332978387, 0, 2040, -2040, 1521.0920462644638, 0, 2129.6180555555557
+
+    // this should be 1:
+    // 140, 124, 3.6154803433579334, 0, -12, -28, 3.961766964913097, 0, -996, -1016, 4.211320472937928, 0, 1015.73125
+
+    float test_data[13] = {140, 124, 3.6154803433579334, 0, -12, -28, 3.961766964913097, 0, -996, -1016, 4.211320472937928, 0, 1015.73125};
     float * results = (float *) tf->inferArray(test_data, tf->TensorType::TT_FLOAT, 13);
-    if (results[0]>results[1] && results[0]>results[2])
-        DMESGF("Result: %d", 1);
-    else if (results[1]>results[0] && results[1]>results[2])
-        DMESGF("Result: %d", 2);
-    else
-        DMESGF("Result: %d", 3);
+    if (results[0] == 1) {
+        DMESGF("Results 0");
+    }
+    if (results[1] == 1) {
+        DMESGF("Results 1");
+    }
 
     // Will never return, but here so the compiler is happy :)
     return 0;
